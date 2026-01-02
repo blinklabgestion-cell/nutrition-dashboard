@@ -12,101 +12,217 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px 20px;
             min-height: 100vh;
+            color: #e0e0e0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         h1 {
             text-align: center;
-            color: white;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
             margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .profile-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
+        .glass-card h2 {
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Profile Stats */
         .profile-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .stat-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.02);
         }
 
         .stat-box h3 {
-            font-size: 1.8em;
-            margin-bottom: 5px;
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-weight: 300;
         }
 
         .stat-box p {
-            font-size: 0.9em;
-            opacity: 0.9;
+            font-size: 0.95em;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85em;
         }
 
-        .grid {
+        /* Macros Chart */
+        .macros-chart {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+        .macro-bar {
+            text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h2 {
-            color: #667eea;
-            margin-bottom: 15px;
+        .macro-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            cursor: pointer;
+            justify-content: center;
+            margin: 0 auto 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .card h2::before {
-            content: "▶";
-            font-size: 0.8em;
-            transition: transform 0.3s ease;
+        .macro-circle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
-        .card h2.active::before {
-            transform: rotate(90deg);
+        .macro-circle .value {
+            font-size: 2.2em;
+            font-weight: 300;
+            color: #ffffff;
         }
 
+        .macro-circle .label {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75em;
+        }
+
+        .macro-bar > p {
+            color: #b0b0b0;
+            font-size: 0.9em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 25px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-time {
+            min-width: 120px;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.1em;
+            padding-top: 5px;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            margin: 8px 25px 0 25px;
+            position: relative;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-dot.highlight {
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .timeline-content strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .timeline-content p {
+            color: #b0b0b0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        /* Meal Sections */
         .meal-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .meal-header {
@@ -114,35 +230,53 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .meal-header:hover {
-            background: #e9ecef;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
         }
 
         .meal-time {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1.2em;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.15em;
         }
 
         .meal-type {
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 8px 20px;
             border-radius: 20px;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .meal-details {
             display: none;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .meal-details.active {
@@ -155,232 +289,251 @@
         }
 
         .meal-details li {
-            padding: 8px;
-            border-left: 3px solid #667eea;
-            margin-bottom: 8px;
-            padding-left: 15px;
-            background: #f8f9fa;
-            border-radius: 5px;
+            padding: 12px 15px;
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 10px;
+            padding-left: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: #e0e0e0;
+            transition: all 0.2s ease;
         }
 
-        .shopping-list {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
+        .meal-details li:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: rgba(255, 255, 255, 0.5);
+            padding-left: 25px;
         }
 
+        .meal-details li strong {
+            color: #ffffff;
+        }
+
+        /* Shopping List */
         .shopping-category {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .shopping-category h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #667eea;
+            color: #ffffff;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 400;
+            font-size: 1.2em;
         }
 
         .shopping-item {
             display: flex;
             align-items: center;
-            padding: 10px;
-            background: #f8f9fa;
-            margin-bottom: 8px;
-            border-radius: 5px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .shopping-item:hover {
-            background: #e9ecef;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
         }
 
         .shopping-item input[type="checkbox"] {
             margin-right: 15px;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
+            accent-color: #ffffff;
         }
 
         .shopping-item.checked {
-            opacity: 0.5;
+            opacity: 0.4;
             text-decoration: line-through;
         }
 
-        .timeline {
-            position: relative;
-            padding: 20px 0;
+        .shopping-item span {
+            color: #e0e0e0;
         }
 
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .timeline-time {
-            min-width: 80px;
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1.2em;
-        }
-
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: #667eea;
-            border-radius: 50%;
-            margin: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 3px solid #667eea;
-        }
-
+        /* Tips Section */
         .tips-section {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         .tips-section h4 {
-            color: #856404;
-            margin-bottom: 10px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 400;
         }
 
         .tips-section ul {
             list-style-position: inside;
-            color: #856404;
+            color: #b0b0b0;
+            line-height: 1.8;
         }
 
-        .macros-chart {
-            display: flex;
-            justify-content: space-around;
+        .tips-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Sources */
+        .sources h3 {
+            color: #ffffff;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+
+        .sources a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .sources a:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: rgba(255, 255, 255, 0.5);
+            padding-left: 25px;
+        }
+
+        .sources p {
+            color: #808080;
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        .btn-print {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 1.05em;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-print:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Collapsible Headers */
+        .toggle-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .toggle-header::after {
+            content: "▼";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+            color: #b0b0b0;
+        }
+
+        .toggle-header.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .content-toggle {
             margin-top: 20px;
         }
 
-        .macro-bar {
-            text-align: center;
-        }
-
-        .macro-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin: 0 auto 10px;
-        }
-
-        .protein-circle {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .carbs-circle {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .fats-circle {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .calories-circle {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-
-        .macro-circle .value {
-            font-size: 2em;
-        }
-
-        .macro-circle .label {
-            font-size: 0.8em;
-            opacity: 0.9;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .macros-chart {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-
-            .profile-stats {
-                grid-template-columns: 1fr 1fr;
+            body {
+                padding: 20px 15px;
             }
 
             h1 {
                 font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            .glass-card {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .profile-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .macros-chart {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .macro-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .timeline-time {
+                min-width: 90px;
+                font-size: 1em;
+            }
+
+            .timeline-dot {
+                margin: 8px 15px 0 15px;
+            }
+
+            .meal-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .stat-box h3 {
+                font-size: 2em;
             }
         }
 
-        .btn-print {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease;
+        /* Utility */
+        .subtitle {
+            color: #808080;
+            font-size: 0.9em;
+            margin-bottom: 20px;
         }
 
-        .btn-print:hover {
-            transform: scale(1.05);
-        }
-
-        .sources {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-top: 20px;
-        }
-
-        .sources h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .sources a {
-            color: #667eea;
-            text-decoration: none;
-            display: block;
-            padding: 8px;
-            margin-bottom: 5px;
-            border-left: 3px solid #667eea;
-            padding-left: 15px;
-            transition: background 0.2s ease;
-        }
-
-        .sources a:hover {
-            background: #f8f9fa;
+        strong {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏋️ Dashboard Prise de Masse - Programme Scientifique</h1>
+        <h1>Dashboard Nutrition & Sport - Prise de Masse</h1>
 
         <!-- Profil -->
-        <div class="profile-card">
-            <h2 style="color: #667eea;">📊 Ton Profil</h2>
+        <div class="glass-card">
+            <h2>📊 Ton Profil</h2>
             <div class="profile-stats">
                 <div class="stat-box">
                     <h3>1m89</h3>
@@ -402,32 +555,32 @@
         </div>
 
         <!-- Macros -->
-        <div class="card">
+        <div class="glass-card">
             <h2>🎯 Tes Macros Quotidiennes</h2>
             <div class="macros-chart">
                 <div class="macro-bar">
-                    <div class="macro-circle calories-circle">
+                    <div class="macro-circle">
                         <span class="value">3600</span>
                         <span class="label">kcal</span>
                     </div>
                     <p>Calories totales</p>
                 </div>
                 <div class="macro-bar">
-                    <div class="macro-circle protein-circle">
+                    <div class="macro-circle">
                         <span class="value">190g</span>
                         <span class="label">Protéines</span>
                     </div>
                     <p>2,4g/kg</p>
                 </div>
                 <div class="macro-bar">
-                    <div class="macro-circle carbs-circle">
+                    <div class="macro-circle">
                         <span class="value">450g</span>
                         <span class="label">Glucides</span>
                     </div>
                     <p>Concentrés à midi</p>
                 </div>
                 <div class="macro-bar">
-                    <div class="macro-circle fats-circle">
+                    <div class="macro-circle">
                         <span class="value">100g</span>
                         <span class="label">Lipides</span>
                     </div>
@@ -437,7 +590,7 @@
         </div>
 
         <!-- Planning journalier -->
-        <div class="card">
+        <div class="glass-card">
             <h2>⏰ Planning Journalier</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -458,8 +611,8 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">18h-19h30</div>
-                    <div class="timeline-dot" style="background: #f5576c; width: 30px; height: 30px;"></div>
-                    <div class="timeline-content" style="border-left-color: #f5576c;">
+                    <div class="timeline-dot highlight"></div>
+                    <div class="timeline-content">
                         <strong>🏋️ SPORT (MUSCULATION)</strong>
                         <p>+84% gains musculaires vs matin (étude scientifique)</p>
                     </div>
@@ -476,13 +629,13 @@
         </div>
 
         <!-- Repas détaillés -->
-        <div class="card">
-            <h2 class="toggle-header">🍽️ Repas Détaillés (Clique pour voir)</h2>
+        <div class="glass-card">
+            <h2 class="toggle-header" onclick="toggleSection(this)">🍽️ Repas Détaillés (Clique pour voir)</h2>
             <div class="content-toggle">
                 <div class="meal-section">
                     <div class="meal-header" onclick="toggleMeal('meal1')">
                         <span class="meal-time">12h00 - REPAS 1</span>
-                        <span class="meal-type">POST-JEÛNE</span>
+                        <span class="meal-type">Post-Jeûne</span>
                     </div>
                     <div class="meal-details" id="meal1">
                         <ul>
@@ -493,14 +646,14 @@
                             <li><strong>2 c.à.s</strong> huile d'olive</li>
                             <li><strong>1</strong> banane</li>
                         </ul>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>💡 Astuce:</strong> Mastique 30x par bouchée pour éviter d'être KO</p>
+                        <p style="margin-top: 15px; color: #b0b0b0;"><strong style="color: #fff;">💡 Astuce:</strong> Mastique 30x par bouchée pour éviter d'être KO</p>
                     </div>
                 </div>
 
                 <div class="meal-section">
                     <div class="meal-header" onclick="toggleMeal('meal2')">
                         <span class="meal-time">16h00 - COLLATION</span>
-                        <span class="meal-type">PRÉ-WORKOUT</span>
+                        <span class="meal-type">Pré-Workout</span>
                     </div>
                     <div class="meal-details" id="meal2">
                         <ul>
@@ -509,14 +662,14 @@
                             <li><strong>300ml</strong> lait d'amande/avoine (ÉVITER lait de vache)</li>
                             <li><strong>1</strong> pomme</li>
                         </ul>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>💡 Alternative:</strong> Smoothie mixé pour digestion rapide</p>
+                        <p style="margin-top: 15px; color: #b0b0b0;"><strong style="color: #fff;">💡 Alternative:</strong> Smoothie mixé pour digestion rapide</p>
                     </div>
                 </div>
 
                 <div class="meal-section">
                     <div class="meal-header" onclick="toggleMeal('meal3')">
                         <span class="meal-time">20h30 - REPAS 2</span>
-                        <span class="meal-type">POST-WORKOUT</span>
+                        <span class="meal-type">Post-Workout</span>
                     </div>
                     <div class="meal-details" id="meal3">
                         <ul>
@@ -527,15 +680,17 @@
                             <li><strong>50g</strong> amandes/noix de cajou</li>
                             <li><strong>1</strong> yaourt grec OU lait végétal</li>
                         </ul>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>💡 Important:</strong> Léger en glucides pour éviter stockage nocturne</p>
+                        <p style="margin-top: 15px; color: #b0b0b0;"><strong style="color: #fff;">💡 Important:</strong> Léger en glucides pour éviter stockage nocturne</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Astuces anti-KO -->
-        <div class="card">
-            <h2>⚡ Astuces Anti-KO (Basées sur études)</h2>
+        <div class="glass-card">
+            <h2>⚡ Astuces Anti-KO</h2>
+            <p class="subtitle">Basées sur études scientifiques</p>
+
             <div class="tips-section">
                 <h4>🚫 Ce qui te met KO:</h4>
                 <ul>
@@ -544,9 +699,10 @@
                     <li>Repas trop gros avalés rapidement</li>
                 </ul>
             </div>
-            <div class="tips-section" style="background: #d1ecf1; border-left-color: #0c5460;">
-                <h4 style="color: #0c5460;">✅ Solutions scientifiques:</h4>
-                <ul style="color: #0c5460;">
+
+            <div class="tips-section">
+                <h4>✅ Solutions scientifiques:</h4>
+                <ul>
                     <li><strong>Remplace lait vache</strong> → Lait amande/avoine/soja</li>
                     <li><strong>Féculents concentrés midi</strong> (meilleure tolérance glucides)</li>
                     <li><strong>Mastique 30x par bouchée</strong> (digestion enzyme salivaire)</li>
@@ -557,9 +713,9 @@
         </div>
 
         <!-- Liste de courses -->
-        <div class="shopping-list">
-            <h2 style="color: #667eea;">🛒 Liste de Courses Hebdomadaire</h2>
-            <p style="margin-bottom: 20px; color: #666;">Clique pour cocher les articles achetés</p>
+        <div class="glass-card">
+            <h2>🛒 Liste de Courses Hebdomadaire</h2>
+            <p class="subtitle">Clique pour cocher les articles achetés</p>
 
             <div class="shopping-category">
                 <h3>🥩 Protéines (×7 jours)</h3>
@@ -659,24 +815,24 @@
         </div>
 
         <!-- Sources scientifiques -->
-        <div class="sources">
+        <div class="glass-card sources">
             <h2>📚 Sources Scientifiques</h2>
-            <p style="margin-bottom: 15px; color: #666;">Programme basé sur des études récentes 2024-2025</p>
+            <p>Programme basé sur des études récentes 2024-2025</p>
 
-            <h3 style="color: #667eea; margin-top: 15px;">Chronobiologie & Glucides:</h3>
+            <h3>Chronobiologie & Glucides:</h3>
             <a href="https://www.ints.fr/perdre-poids/maigrir-durablement-science-2024-chrono-nutrition-microbiote-cgm-equilibre-motivation-flexibilite/" target="_blank">Maigrir durablement: science 2024, chrono-nutrition</a>
             <a href="https://www.dynveo.fr/blog/chrononutrition-n201" target="_blank">Avis scientifique sur la Chrononutrition</a>
             <a href="https://pnourtier.com/2025/09/05/chronobiologie-alimentaire/" target="_blank">Chronobiologie alimentaire - Pascal Nourtier</a>
 
-            <h3 style="color: #667eea; margin-top: 15px;">Sport matin vs soir:</h3>
+            <h3>Sport matin vs soir:</h3>
             <a href="https://resofit.fr/blog/article/meilleur-moment-pour-faire-du-sport" target="_blank">Le meilleur moment pour s'entraîner (+84% gains soir)</a>
             <a href="https://www.alternativesante.fr/sport/sport-a-quelle-heure-s-entrainer-pour-mieux-bruler-les-graisses-ou-prendre-du-muscle" target="_blank">Sport : à quelle heure s'entraîner</a>
 
-            <h3 style="color: #667eea; margin-top: 15px;">Calories prise de masse:</h3>
+            <h3>Calories prise de masse:</h3>
             <a href="https://www.julienvenesson.fr/combien-de-calories-pour-prendre-du-muscle-nouvelles-donnees-scientifiques/" target="_blank">Nouvelles données scientifiques - Julien Venesson</a>
             <a href="https://laprisedemasse.fr/prise-de-masse-combien-de-calories-par-jour/" target="_blank">Calcul calories prise de masse</a>
 
-            <h3 style="color: #667eea; margin-top: 15px;">Lait de vache:</h3>
+            <h3>Lait de vache:</h3>
             <a href="https://www.physionat.net/lait-de-vache-quels-effets-negatifs-sur-la-sante-des-adultes/" target="_blank">Lait de vache : effets négatifs</a>
             <a href="https://www.cerin.org/breves-scientifiques/produits-laitiers-et-inflammation/" target="_blank">Produits laitiers et inflammation</a>
         </div>
@@ -696,36 +852,35 @@
             item.classList.toggle('checked');
             const checkbox = item.querySelector('input[type="checkbox"]');
             checkbox.checked = !checkbox.checked;
+
+            // Save to localStorage
+            const text = item.querySelector('span').textContent;
+            localStorage.setItem('shopping_' + text, checkbox.checked);
         }
 
-        // Toggle section headers
-        document.querySelectorAll('.toggle-header').forEach(header => {
-            header.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                if (content && content.classList.contains('content-toggle')) {
-                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        // Toggle section
+        function toggleSection(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        // Load shopping list state from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.shopping-item').forEach(item => {
+                const text = item.querySelector('span').textContent;
+                const saved = localStorage.getItem('shopping_' + text);
+                if (saved === 'true') {
+                    item.classList.add('checked');
+                    item.querySelector('input[type="checkbox"]').checked = true;
                 }
             });
-        });
 
-        // Save shopping list state to localStorage
-        document.querySelectorAll('.shopping-item').forEach(item => {
-            const text = item.querySelector('span').textContent;
-            const saved = localStorage.getItem('shopping_' + text);
-            if (saved === 'true') {
-                item.classList.add('checked');
-                item.querySelector('input[type="checkbox"]').checked = true;
-            }
-
-            item.addEventListener('click', function() {
-                const isChecked = this.classList.contains('checked');
-                localStorage.setItem('shopping_' + text, isChecked);
-            });
-        });
-
-        // Auto-expand first meal on load
-        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-expand first meal
             document.getElementById('meal1').classList.add('active');
         });
     </script>
