@@ -1,0 +1,5 @@
+*.pdf
+.DS_Store
+.claude/
+dashboard-nutrition.html
+guide-energie-et-muscle.md
